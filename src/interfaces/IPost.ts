@@ -4,4 +4,5 @@ export interface IPost{
     category:string;
     title:string;
     content :string;
+    user : string;
 }
