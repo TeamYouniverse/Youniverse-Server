@@ -8,8 +8,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-console.log("here")
-app.use("/",loginRouter);
+app.use("/api/login", loginRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
