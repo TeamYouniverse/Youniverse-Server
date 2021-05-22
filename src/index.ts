@@ -1,3 +1,4 @@
+import { decodeBase64 } from "bcryptjs";
 import express from "express";
 const app = express();
 import connectDB from "./Logger/db";
@@ -18,8 +19,9 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app
-  .listen(5000, () => {
+
+
+app.listen(5000, () => {
     console.log(`
     ################################################
     🛡️  Server listening on port: 5000 🛡️
