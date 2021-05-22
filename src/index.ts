@@ -1,12 +1,15 @@
 import { decodeBase64 } from "bcryptjs";
 import express from "express";
-const app = express();
 import connectDB from "./Logger/db";
+import loginRouter from "./api/login"
+const app = express();
 
 // Connect Database
 connectDB();
 
 app.use(express.json());
+console.log("here")
+app.use("/",loginRouter);
 
 // error handler
 app.use(function (err, req, res, next) {
