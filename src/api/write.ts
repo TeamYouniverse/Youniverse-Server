@@ -15,6 +15,7 @@ router.post("/",async (req: Request, res: Response) => {
       newPost.title = req.body.title
       newPost.content = req.body.content
       newPost.category = req.body.category
+      newPost.user = req.body.user
       const post = await newPost.save();
 
       const result = {

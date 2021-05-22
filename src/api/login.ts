@@ -15,14 +15,24 @@ router.post('/', async(req, res) => {
       const newUser = new User();
       newUser.username = findUsername;
       const createdUser = await newUser.save();
-      console.log("sign up");
-      return res.status(200).json(createdUser);
+
+      const result = {
+        "id" : createdUser.id,
+        "username" : createdUser.username
+      }
+
+      return res.status(200).json(result);
     
     } else {
       // 로그인
       const findUser = user[0];
-      console.log("login");
-      return res.status(200).json(findUser);
+
+      const result = {
+        "id" : findUser.id,
+        "username" : findUser.username
+      }
+
+      return res.status(200).json(result);
     }
 
   } catch(error) {

@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import Post from "../models/Post";
-import User from "../models/user";
+import User from "../models/User";
 
 const router = Router();
 
@@ -10,9 +10,9 @@ const router = Router();
  *  @access Private
  */
 
- router.get("/", async (req: Request, res: Response) => {
-    res.send("응답");
-  });
+//  router.get("/", async (req: Request, res: Response) => {
+//     res.send("응답");
+//   });
   
 
 router.get("/:id", async (req: Request, res: Response) => {
