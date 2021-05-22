@@ -1,6 +1,37 @@
 import express from "express";
 import Post from "../models/Post";
+import User from "../models/User"
 const router = express.Router();
+
+// username이 존재하지 않으면 회원가입, 있으면 로그인
+router.post('/', async(req, res) => {
+
+  try {
+    const findUsername = req.body.username;
+    const user = await User.find({username: findUsername});
+
+    if (user.length === 0) {
+      // 회원 가입
+      const newUser = new User();
+      newUser.username = findUsername;
+      const createdUser = await newUser.save();
+      console.log("sign up");
+      return res.status(200).json(createdUser);
+    
+    } else {
+      // 로그인
+      const findUser = user[0];
+      console.log("login");
+      return res.status(200).json(findUser);
+    }
+
+  } catch(error) {
+    console.log(error);
+    return res.status(500).json({
+      status: 500
+    })
+  } 
+})
 
 // router.get('/', async(req, res) => {
 //   try {
