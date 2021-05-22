@@ -1,4 +1,3 @@
-import { decodeBase64 } from "bcryptjs";
 import express from "express";
 import connectDB from "./Logger/db";
 import loginRouter from "./api/login"
@@ -8,8 +7,9 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-console.log("here")
 app.use("/",loginRouter);
+app.use("/api/write",require("./api/write"));
+app.use("/api/user",require("./api/user"));
 
 // error handler
 app.use(function (err, req, res, next) {

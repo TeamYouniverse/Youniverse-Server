@@ -10,6 +10,10 @@ const PostSchema= new mongoose.Schema({
     },
     content:{
         type:String,
+    },
+    user: {
+        type: mongoose.Types.ObjectId,
+        ref: "User",
     }
 });
 
