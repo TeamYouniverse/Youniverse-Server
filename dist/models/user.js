@@ -11,10 +11,12 @@ const UserSchema = new mongoose_1.default.Schema({
     },
     postList: [
         {
-            type: mongoose_1.default.Schema.Types.ObjectId,
-            ref: "Post"
+            post: {
+                type: mongoose_1.default.Types.ObjectId,
+                ref: "Post",
+            }
         }
     ]
 });
 exports.default = mongoose_1.default.model("User", UserSchema);
-//# sourceMappingURL=user.js.map
+//# sourceMappingURL=User.js.map
