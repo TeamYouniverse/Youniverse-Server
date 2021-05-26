@@ -15,7 +15,7 @@
     "noEmit": false,
     "esModuleInterop": true,
     "typeRoots": ["./src/types/express.d.ts", "./node_modules/@types"],
-     "noimplicitany" : false,
+     "noimplicitany" : false
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules", "tests"]
