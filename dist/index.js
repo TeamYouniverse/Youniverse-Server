@@ -4,11 +4,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const app = express_1.default();
 const db_1 = __importDefault(require("./Logger/db"));
+const login_1 = __importDefault(require("./api/login"));
+const cors_1 = __importDefault(require("cors"));
+const app = express_1.default();
 // Connect Database
 db_1.default();
 app.use(express_1.default.json());
+app.use("/api/write", require("./api/write"));
+app.use("/api/user", require("./api/user"));
+app.use("/api/login", login_1.default);
+app.use(cors_1.default());
 // error handler
 app.use(function (err, req, res, next) {
     // set locals, only providing error in development
@@ -18,8 +24,7 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render("error");
 });
-app
-    .listen(5000, () => {
+app.listen(5000, () => {
     console.log(`
     ################################################
     🛡️  Server listening on port: 5000 🛡️

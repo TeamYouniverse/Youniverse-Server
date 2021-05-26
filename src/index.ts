@@ -1,6 +1,7 @@
 import express from "express";
 import connectDB from "./Logger/db";
 import loginRouter from "./api/login"
+import cors from "cors"
 const app = express();
 
 // Connect Database
@@ -12,6 +13,7 @@ app.use("/api/write",require("./api/write"));
 app.use("/api/user",require("./api/user"));
 app.use("/api/login", loginRouter);
 
+app.use(cors());
 
 // error handler
 app.use(function (err, req, res, next) {
