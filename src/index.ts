@@ -17,7 +17,11 @@ app.use(cors());
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
+//fix Access-Control-Allow-Headers error
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "*");
+
+// set locals, only providing error in development
   res.locals.message = err.message; 
   res.locals.error = req.app.get("env") === "production" ? err : {};
 
