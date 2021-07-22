@@ -7,7 +7,7 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 app.use("/api/write",require("./api/write"));
 app.use("/api/user",require("./api/user"));
