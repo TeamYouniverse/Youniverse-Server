@@ -37,5 +37,12 @@ router.post("/", async (req: Request, res: Response) => {
     res.status(500).send("Server Error")
   }
 });
+router.get("/", async (req: Request, res: Response) => {
+  var open=require('open')
+  open('https://www.naver.com');
+  res.send(200);
+})
+
+
 
 module.exports= router;

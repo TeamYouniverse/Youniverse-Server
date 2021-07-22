@@ -7,17 +7,12 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 app.use("/api/write",require("./api/write"));
 app.use("/api/user",require("./api/user"));
 app.use("/api/login",require("./api/login"));
 
-// app.get("/api/",function(req,res){
-//   var open=require('open')
-//   open('https://www.naver.com');
-//   res.send(200);
-// })
 
 // error handler
 app.use(function (err, req, res, next) {
