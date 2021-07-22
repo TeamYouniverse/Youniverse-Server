@@ -27,10 +27,10 @@ app.use(function (err, req, res, next) {
 
 
 
-app.listen(5000, () => {
+app.listen(5050, () => {
     console.log(`
     ################################################
-    🛡️  Server listening on port: 5000 🛡️
+    🛡️  Server listening on port: 5050 🛡️
     ################################################
   `);
   })
