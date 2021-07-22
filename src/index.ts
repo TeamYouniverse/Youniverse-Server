@@ -1,19 +1,23 @@
 import express from "express";
 import connectDB from "./Logger/db";
-import loginRouter from "./api/login"
-import cors from "cors"
+var cors=require('cors')
 const app = express();
 
 // Connect Database
 connectDB();
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/api/write",require("./api/write"));
 app.use("/api/user",require("./api/user"));
-app.use("/api/login", loginRouter);
+app.use("/api/login",require("./api/login"));
 
-app.use(cors());
+// app.get("/api/",function(req,res){
+//   var open=require('open')
+//   open('https://www.naver.com');
+//   res.send(200);
+// })
 
 // error handler
 app.use(function (err, req, res, next) {

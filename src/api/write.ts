@@ -1,4 +1,6 @@
 import { Router, Request, Response } from "express";
+var mongoose = require('mongoose');
+import User from "../models/User";
 
 import Post from "../models/Post";
 const router = Router();
@@ -15,8 +17,12 @@ router.post("/",async (req: Request, res: Response) => {
       newPost.title = req.body.title
       newPost.content = req.body.content
       newPost.category = req.body.category
-      newPost.user = req.body.user
+      newPost.user = mongoose.Types.ObjectId(req.body.user)
       const post = await newPost.save();
+
+      const findUser=await User.findById(newPost.user)
+      findUser.postList.push(newPost);
+      findUser.save()
 
       const result = {
           "id" : post.id,

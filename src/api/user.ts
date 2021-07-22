@@ -19,9 +19,7 @@ router.get("/:id", async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.params.id);
     //const { id } = req.params;
-    // console.log(id);
-
-
+    // console.log(id);\
     // const newPost = new Post();
     // newPost.title = "test123";
     // newPost.category = "sad";
@@ -34,10 +32,7 @@ router.get("/:id", async (req: Request, res: Response) => {
     }
     // res.json(user);
 
-    
-
     const posts = await Post.find({user: req.params.id});
-
     const groups = posts.reduce((a, c) =>{
         a[c.category] = a[c.category] || [];
         a[c.category].push(c);

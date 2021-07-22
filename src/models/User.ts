@@ -8,14 +8,11 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
   postList: [
-      {
-        post: {
+    {
           type: mongoose.Types.ObjectId,
-          ref: "Post",
+          ref: "Post"
         }
-      }
     ]
-},
-);
+  });
 
 export default mongoose.model<IUser & mongoose.Document>("User", UserSchema);
